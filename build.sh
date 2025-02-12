@@ -10,9 +10,10 @@ set -ouex pipefail
 # https://mirrors.rpmfusion.org/mirrorlist?path=free/fedora/updates/39/x86_64/repoview/index.html&protocol=https&redirect=1
 
 # this installs a package from fedora repos
-dnf install -y dkms
+dnf install -y make
 cd /tmp/wifi
-./dkms-install.sh
+make
+make install
 
 # Use a COPR Example:
 #
