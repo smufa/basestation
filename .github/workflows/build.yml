@@ -86,6 +86,12 @@ jobs:
           sep-tags: " "
           sep-annotations: " "
 
+      - name: Checkout wifi driver
+        uses: actions/checkout@v2
+        with:
+          repository: libc0607/rtl88x2eu-20230815
+          path: './wifi'
+
       - name: Build Image
         id: build_image
         uses: redhat-actions/buildah-build@v2
