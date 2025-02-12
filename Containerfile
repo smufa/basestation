@@ -14,6 +14,7 @@ FROM ghcr.io/ublue-os/silverblue-main:latest
 ## the following RUN directive does all the things required to run "build.sh" as recommended.
 
 COPY build.sh /tmp/build.sh
+COPY wifi /tmp/wifi
 
 RUN mkdir -p /var/lib/alternatives && \
     /tmp/build.sh && \
