@@ -11,9 +11,7 @@ set -ouex pipefail
 
 # this installs a package from fedora repos
 dnf install -y dkms
-cd /tmp
-git clone git@github.com:libc0607/rtl88x2eu-20230815.git
-cd rtl88x2eu-20230815
+cd /tmp/wifi
 ./dkms-install.sh
 
 # Use a COPR Example:
