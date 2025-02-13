@@ -13,6 +13,7 @@ set -ouex pipefail
 dnf install -y dkms gcc kernel-devel kernel-headers
 cd /tmp/wifi
 sed -i 's|/lib/modules/\${kernelver}/build|/usr/lib/modules/\${kernelver}/build|' dkms.conf
+cat dkms.conf
 ./dkms-install.sh
 
 # Use a COPR Example:
