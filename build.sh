@@ -12,9 +12,9 @@ set -ouex pipefail
 # this installs a package from fedora repos
 dnf install -y dkms gcc kernel-devel kernel-headers
 cd /tmp/wifi
-sed -i 's|/lib/modules/\${kernelver}/build|/usr/lib/modules/\${kernelver}/build|' dkms.conf
-ls /usr/lib/modules
-cat dkms.conf
+sed -i 's|/lib/modules/\${kernelver}/build|/usr/lib/modules/6.12.11-200.fc41.x86_64/build|' dkms.conf
+# ls /usr/lib/modules
+# cat dkms.conf
 ./dkms-install.sh
 
 # Use a COPR Example:
