@@ -12,10 +12,11 @@ set -ouex pipefail
 # this installs a package from fedora repos
 dnf install -y dkms gcc kernel-devel kernel-headers
 cd /tmp/wifi
-sed -i 's|/lib/modules/\${kernelver}/build|/usr/lib/modules/6.12.11-200.fc41.x86_64/build|' dkms.conf
-sed -i 's|dkms build -m .* -v .*|dkms build -m ${DRV_NAME} -v ${DRV_VERSION} -k 6.12.11-200.fc41.x86_64|' script.sh
-sed -i 's|dkms install -m .* -v .*|dkms install -m ${DRV_NAME} -v ${DRV_VERSION} -k 6.12.11-200.fc41.x86_64|' script.sh
 ls /usr/lib/modules/6.12.11-200.fc41.x86_64
+sed -i 's|/lib/modules/\${kernelver}/build|/usr/lib/modules/6.12.11-200.fc41.x86_64/build|' dkms.conf
+sed -i 's|dkms build -m .* -v .*|dkms build -m ${DRV_NAME} -v ${DRV_VERSION} -k 6.12.11-200.fc41.x86_64|' dkms-install.sh
+sed -i 's|dkms install -m .* -v .*|dkms install -m ${DRV_NAME} -v ${DRV_VERSION} -k 6.12.11-200.fc41.x86_64|' dkms-install.sh
+
 # ls /usr/lib/modules
 # cat dkms.conf
 ./dkms-install.sh
