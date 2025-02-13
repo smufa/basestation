@@ -13,6 +13,9 @@ set -ouex pipefail
 dnf install -y dkms gcc kernel-devel kernel-headers
 cd /tmp/wifi
 sed -i 's|/lib/modules/\${kernelver}/build|/usr/lib/modules/6.12.11-200.fc41.x86_64/build|' dkms.conf
+sed -i 's|dkms build -m .* -v .*|dkms build -m ${DRV_NAME} -v ${DRV_VERSION} -k 6.12.11-200.fc41.x86_64|' script.sh
+sed -i 's|dkms install -m .* -v .*|dkms install -m ${DRV_NAME} -v ${DRV_VERSION} -k 6.12.11-200.fc41.x86_64|' script.sh
+ls /usr/lib/modules/6.12.11-200.fc41.x86_64
 # ls /usr/lib/modules
 # cat dkms.conf
 ./dkms-install.sh
